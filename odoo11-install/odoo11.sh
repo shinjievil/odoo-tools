@@ -19,9 +19,12 @@ sudo apt-get -y install python3 python3-pip python-pip
 sudo pip3 install vobject qrcode num2words
 
 # Install nodejs and less
+sudo apt-get install curl
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y npm
 sudo ln -s /usr/bin/nodejs /usr/bin/node
-sudo npm install -g less
+sudo npm install -g less less-plugin-clean-css
+sudo apt-get install node-less
 
 # Download & install WKHTMLTOPDF
 rm wkhtml*
@@ -34,6 +37,7 @@ else
 fi
 
 sudo dpkg --force-depends -i wkhtmltox*.deb
+sudo apt-get -f install
 sudo ln -s /usr/local/bin/wkhtml* /usr/bin
 
 # install python requirements file (Odoo)
